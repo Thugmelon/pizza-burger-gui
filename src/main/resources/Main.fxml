@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.unomaha.Controller"
+            prefWidth="900" prefHeight="600">
+
+    <!-- Top Title -->
+    <top>
+        <Label text="Build Your Own Pizza &amp; Burger" style="-fx-font-size: 20px;" BorderPane.alignment="CENTER"/>
+    </top>
+
+    <!-- Center: Form Inputs and Add Buttons -->
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <HBox spacing="15">
+                <VBox spacing="5">
+                    <Label text="Pizza Crust"/>
+                    <ComboBox fx:id="pizzaCrustBox"/>
+                </VBox>
+                <VBox spacing="5">
+                    <Label text="Pizza Sauce"/>
+                    <ComboBox fx:id="pizzaSauceBox"/>
+                </VBox>
+                <VBox spacing="5">
+                    <Label text="Pizza Toppings"/>
+                    <ListView fx:id="pizzaToppingList" prefHeight="100"/>
+                </VBox>
+                <Button text="Add Pizza" onAction="#handleAddPizza"/>
+            </HBox>
+
+            <HBox spacing="15">
+                <VBox spacing="5">
+                    <Label text="Burger Bun"/>
+                    <ComboBox fx:id="burgerBunBox"/>
+                </VBox>
+                <VBox spacing="5">
+                    <Label text="Burger Patties"/>
+                    <ListView fx:id="burgerPattyList" prefHeight="100"/>
+                </VBox>
+                <VBox spacing="5">
+                    <Label text="Burger Cheeses"/>
+                    <ListView fx:id="burgerCheeseList" prefHeight="100"/>
+                </VBox>
+                <VBox spacing="5">
+                    <Label text="Burger Garnishes"/>
+                    <ListView fx:id="burgerGarnishList" prefHeight="100"/>
+                </VBox>
+                <Button text="Add Burger" onAction="#handleAddBurger"/>
+            </HBox>
+        </VBox>
+    </center>
+
+    <!-- Right: Order Summary -->
+    <right>
+        <VBox spacing="10" BorderPane.alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <Label text="Order Summary"/>
+            <ScrollPane prefHeight="300" prefWidth="300">
+                <VBox fx:id="orderDisplayBox" spacing="5">
+                    <padding>
+                        <Insets top="5" right="5" bottom="5" left="5"/>
+                    </padding>
+                </VBox>
+            </ScrollPane>
+            <Label fx:id="subtotalLabel" text="Subtotal: $0.00"/>
+            <Label fx:id="totalLabel" text="Total: $0.00"/>
+            <Button text="View Receipt" onAction="#handleViewReceipt"/>
+        </VBox>
+    </right>
+
+</BorderPane>
